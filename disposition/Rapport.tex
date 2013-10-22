@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article} 
+\usepackage[danish]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\section{Forside}
+
+\section{Problemformulering}
+
+\section{Indledning}
+
+
+\section{Hårde skygger}
+Beskriver forskellige måder at ligge hårde skygger på en scene. De 2 metoder der idag bruges til at ligge 
+
+shadowmapping
+ shadow volumes
+
+\section{Shadowmap}
+
+\subsection{Teori}
+Beskrivelse af shadow mapping teknikken. heriblandt fordele og ulemper.
+
+\subsection{Pratisk}
+Beskriver problemer der opstår når shadow mapping teknikken implementeres.
+ 
+\subsubsection{shadow acne}
+Beskriver  baising og hvilke problemer dette løser i forhold til den praktiske implementering af shadow mapping. Og hvilke problemer det også kan skabe (peter panning)
+\subsubsection{peter panning}
+
+\subsection{Forbedringer/aliasing}
+Kigger på mulighederne for at forbedre shadow mapping teknikken vha. aliasing:
+
+forskellige metoder:
+Interpolated shadowing
+Percentage Closer Filtering (PCF)
+Variance Shadow Mapping (VSM)
+
+
+\section{Stencil Shadow Volumes}
+
+\subsection{Teori}
+Beskrivelse af Stencil shadow Volumes teknikken. heriblandt fordele og ulemper.
+
+
+\subsection{Depth-Pass Vs. Depth-Fail}
+Sammen ligner de 2 metoder Depth-Pass og Depth-Fail for at bestemme om en vertex er i skygge eller ej.
+
+evt kun meget kort om Depth-Pass
+
+
+\section{Afprøvning}
+ De 2 metoder afprøves, og det vises hvordan de forskellige metoder og filtre påvirker resultaterne.	
+
+\subsection{Køretider}
+Køretiderner for de 2 metoder afprøves.
+
+\section{Konklution}
+
+
+
+\end{document}
