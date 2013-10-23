@@ -51,8 +51,6 @@ I step 1 er det kun dybder der er interessante og der kan derfor spares regne kr
 At kameraet bruges for at finde ud af hvad der er lyst op gør at denne metode egner sig godt ved brug af spot light som lys kilde, dette kan dog udvides til andre lyskilder som fx. punkt lyskilder. Denne opgave vil kun arbejde med spot light som lyskilder og i stedet fokusere på teknikker til at forbedre skyggerne der bliver kastet.  
 
 
-
-
 \subsection{Praktisk}
 
 
@@ -77,22 +75,47 @@ Problem 1 og 2
  
 \subsubsection{Shadow acne}
 
+dybde buffer eller kort?
 
-Dette problem opstår fordi dybde buffer ikke altid er helt præcis, dette er den ikke fordi den indeholder flyenden tal og som altid når der bruges flyenden tal kan der opstår afrundings fejl. En anden grund til problemet opstår er fordi dybde bufferen ikke er lineær (er den kun for orthogonale projektion), dvs. største delen af presicitionen ligger tæt på "front clipping" planet. Dette betyder at jo længere væk objekterne er fra lyskilden jo mindre præcise vil skyggerne blive. 
+Når punkter fra kameraet projekteres ind i dybde kortet kan forskellige problemer opstå. Et problem er at decimaler smides væk fordi der dybde buffer indeholder flydende tal. Dybde buffer har et vis antal bit til at repræsentere det flydende tal for z-værdien,  og som altid når der bruges flyenden tal kan der opstår afrundings fejl. Denne afrundings fejl kan betyde at når de 2 z-værdier sammenlignes er disse ikke helt ens og fladen kan derfor fejlagtigt kaste skygge på sig selv. 
+
+På figur S1 ses det hvorfor dette problem opstår når afrundings fejlen opstår.
 
 
 Der er mange måder at løse/ afhjælpe shadow acne på:
 
-Højere opløsning
 Tætning af visningstuben
 biasing
 	sloap baising
+
+
+Tætning af visningstuben
+
+Som forklaret tidligere er problemet med shadow acne at der ikke er præcision nok i dybde kortet, denne præcision kan forbedres ved at rykke  "front"  og "back" clipping planerne så de tætter indkapsler alle objekterne i scenen. Denne opgave vil ikke forklare hvordan denne tætning opnås men blot forklare og vise at dette(OVERVEJ OM JEG OGSÅ VIL DET) vil give et bedre resultat. Tætning af visningstuben kan dog ikke afhjælpe alle de afrundings fejl der opstår når floating points for dybde-værdierne sammenlignes.
+
+Biasing
+
+Biasing er en er en måde at løse de sammenlignings fejl der er skyld i shadow acne. Metoden fungere ved at addere et lille offset til fragtmenter når scenen renderes fra lyset, dette bevirker at alle fragtmenter vil have en lidt mindre z-værdi end når scenen renderes for kameraet, og derved forsvinder shadow acne problemet. 
+
+Biasing vil gerne opnå at dybde fra øjet(kameratet) =< dybde i shadowmappet for alle fragtmenter fra det samme polygonium.
+
+
+
+I den simplste for er biasing en konstant offset værdi der tilføjes til fragtmentet
+
+ 
+
+
+
 
 
 \subsubsection{Peter panning}
 
 
 \subsection{Forbedringer/aliasing}
+
+En anden grund til problemet opstår er fordi dybde bufferen ikke er lineær (er den kun for orthogonale projektion), dvs. største delen af presicitionen ligger tæt på "front clipping" planet. Dette betyder at jo længere væk objekterne er fra lyskilden jo mindre præcise vil skyggerne blive, dette bliver dog kun et problem hvis kameraet er tæt på disse objekter. 
+
 Kigger på mulighederne for at forbedre shadow mapping teknikken vha. aliasing:
 
 forskellige metoder:
