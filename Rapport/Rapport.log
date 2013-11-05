@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.21)  2 NOV 2013 16:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.21)  5 NOV 2013 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,11 +478,7 @@ Overfull \hbox (38.33858pt too wide) in paragraph at lines 59--60
  [][] 
  []
 
-[3 <./img/2.png>]
-
-LaTeX Warning: Reference `P2' on page 4 undefined on input line 88.
-
-<img/P2.jpg, id=16, 3276.24pt x 2457.18pt>
+[3 <./img/2.png>] <img/P2.jpg, id=16, 3276.24pt x 2457.18pt>
 File: img/P2.jpg Graphic file (type jpg)
  <use img/P2.jpg>
 Package pdftex.def Info: img/P2.jpg used on input line 92.
@@ -499,7 +495,7 @@ Overfull \hbox (10.1009pt too wide) in paragraph at lines 114--115
 en er \OT1/cmr/m/it/10.95 self-shadowing
  []
 
-<img/S0.png, id=22, 301.125pt x 157.58875pt>
+<img/S0.png, id=21, 301.125pt x 157.58875pt>
 File: img/S0.png Graphic file (type png)
  <use img/S0.png>
 Package pdftex.def Info: img/S0.png used on input line 118.
@@ -540,32 +536,33 @@ File: img/S4.jpg Graphic file (type jpg)
  <use img/S4.jpg>
 Package pdftex.def Info: img/S4.jpg used on input line 174.
 (pdftex.def)             Requested size: 256.0748pt x 192.0417pt.
- [8 <./img/S3.jpg>] [9 <./img/S4.jpg>] [10] (./Rapport.aux)
+ [8 <./img/S3.jpg>] [9 <./img/S4.jpg>] <img/PCF1.png, id=46, 464.73625pt x 408.
+52625pt>
+File: img/PCF1.png Graphic file (type png)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+<use img/PCF1.png>
+Package pdftex.def Info: img/PCF1.png used on input line 216.
+(pdftex.def)             Requested size: 256.0748pt x 225.10777pt.
+ [10 <./img/PCF1.png>] [11] (./Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 3208 strings out of 493315
- 41683 string characters out of 6137903
- 106267 words of memory out of 5000000
- 6573 multiletter control sequences out of 15000+600000
+ 3214 strings out of 493315
+ 41762 string characters out of 6137903
+ 106286 words of memory out of 5000000
+ 6578 multiletter control sequences out of 15000+600000
  10646 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  37i,5n,26p,906b,227s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Rapport.pdf (10 pages, 15340648 bytes).
+</usr/local/texlive/2013/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/font
+s/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Rapport.pdf (11 pages, 15374041 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
