@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.21)  5 NOV 2013 21:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.10.21)  8 NOV 2013 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,110 +459,121 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 31.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 31.
+
+
+LaTeX Warning: Citation `SMAP' on page 1 undefined on input line 42.
+
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<img/1.png, id=8, 1005.7575pt x 352.31625pt>
+[2] <img/1.png, id=14, 1005.7575pt x 352.31625pt>
 File: img/1.png Graphic file (type png)
  <use img/1.png>
-Package pdftex.def Info: img/1.png used on input line 41.
+Package pdftex.def Info: img/1.png used on input line 76.
 (pdftex.def)             Requested size: 341.43306pt x 119.60315pt.
- [2 <./img/1.png>]
-<img/2.png, id=12, 453.695pt x 240.9pt>
+ [3 <./img/1.png>] <img/2.png, id=18, 453.695pt x 240.9pt>
 File: img/2.png Graphic file (type png)
  <use img/2.png>
-Package pdftex.def Info: img/2.png used on input line 59.
+Package pdftex.def Info: img/2.png used on input line 94.
 (pdftex.def)             Requested size: 398.33858pt x 211.50743pt.
 
-Overfull \hbox (38.33858pt too wide) in paragraph at lines 59--60
+Overfull \hbox (38.33858pt too wide) in paragraph at lines 94--95
  [][] 
  []
 
-[3 <./img/2.png>] <img/P2.jpg, id=16, 3276.24pt x 2457.18pt>
-File: img/P2.jpg Graphic file (type jpg)
- <use img/P2.jpg>
-Package pdftex.def Info: img/P2.jpg used on input line 92.
-(pdftex.def)             Requested size: 256.0748pt x 192.0417pt.
-
-<img/P1.jpg, id=17, 3276.24pt x 2457.18pt>
+[4 <./img/2.png>] <img/P1.jpg, id=22, 3276.24pt x 2457.18pt>
 File: img/P1.jpg Graphic file (type jpg)
  <use img/P1.jpg>
-Package pdftex.def Info: img/P1.jpg used on input line 102.
+Package pdftex.def Info: img/P1.jpg used on input line 121.
 (pdftex.def)             Requested size: 256.0748pt x 192.0417pt.
- [4 <./img/P2.jpg>]
-Overfull \hbox (10.1009pt too wide) in paragraph at lines 114--115
-[]\OT1/cmr/m/n/10.95 Det mest syn-li-ge pro-blem med sha-dow map-ping al-grit-m
-en er \OT1/cmr/m/it/10.95 self-shadowing
- []
 
-<img/S0.png, id=21, 301.125pt x 157.58875pt>
+[5 <./img/P1.jpg>] <img/P2.jpg, id=26, 3276.24pt x 2457.18pt>
+File: img/P2.jpg Graphic file (type jpg)
+ <use img/P2.jpg>
+Package pdftex.def Info: img/P2.jpg used on input line 133.
+(pdftex.def)             Requested size: 256.0748pt x 192.0417pt.
+
+<img/S0.png, id=27, 301.125pt x 157.58875pt>
 File: img/S0.png Graphic file (type png)
  <use img/S0.png>
-Package pdftex.def Info: img/S0.png used on input line 118.
+Package pdftex.def Info: img/S0.png used on input line 145.
 (pdftex.def)             Requested size: 256.0748pt x 134.02559pt.
- [5 <./img/P1.jpg> <./img/S0.png>] <img/S1.jpg, id=27, 3276.24pt x 2457.18pt>
+ [6 <./img/P2.jpg>] <img/S1.jpg, id=31, 3276.24pt x 2457.18pt>
 File: img/S1.jpg Graphic file (type jpg)
  <use img/S1.jpg>
-Package pdftex.def Info: img/S1.jpg used on input line 131.
+Package pdftex.def Info: img/S1.jpg used on input line 157.
 (pdftex.def)             Requested size: 256.0748pt x 192.0417pt.
-
-[6 <./img/S1.jpg>] <img/S2.jpg, id=31, 3276.24pt x 2457.18pt>
+ [7 <./img/S0.png> <./img/S1.jpg>] <img/S2.jpg, id=36, 3276.24pt x 2457.18pt>
 File: img/S2.jpg Graphic file (type jpg)
  <use img/S2.jpg>
-Package pdftex.def Info: img/S2.jpg used on input line 142.
+Package pdftex.def Info: img/S2.jpg used on input line 171.
 (pdftex.def)             Requested size: 227.62204pt x 170.7079pt.
 
-<img/S3.jpg, id=32, 3276.24pt x 2457.18pt>
+[8 <./img/S2.jpg>] <img/S3.jpg, id=40, 3276.24pt x 2457.18pt>
 File: img/S3.jpg Graphic file (type jpg)
  <use img/S3.jpg>
-Package pdftex.def Info: img/S3.jpg used on input line 151.
+Package pdftex.def Info: img/S3.jpg used on input line 181.
 (pdftex.def)             Requested size: 227.62204pt x 170.7079pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 162.
+LaTeX Font Info:    Try loading font information for U+msa on input line 188.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 162.
+LaTeX Font Info:    Try loading font information for U+msb on input line 188.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 162.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 188.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [7 <./img/S2.jpg>] <img/S4.jpg, id=37, 3276.24pt x 2457.18pt>
+)
+<img/S4.jpg, id=41, 3276.24pt x 2457.18pt>
 File: img/S4.jpg Graphic file (type jpg)
  <use img/S4.jpg>
-Package pdftex.def Info: img/S4.jpg used on input line 174.
+Package pdftex.def Info: img/S4.jpg used on input line 198.
 (pdftex.def)             Requested size: 256.0748pt x 192.0417pt.
- [8 <./img/S3.jpg>] [9 <./img/S4.jpg>] <img/PCF1.png, id=46, 464.73625pt x 408.
-52625pt>
+ [9 <./img/S3.jpg>]
+[10 <./img/S4.jpg>] <img/PCF1.png, id=49, 464.73625pt x 408.52625pt>
 File: img/PCF1.png Graphic file (type png)
 
 <use img/PCF1.png>
-Package pdftex.def Info: img/PCF1.png used on input line 216.
+Package pdftex.def Info: img/PCF1.png used on input line 225.
 (pdftex.def)             Requested size: 256.0748pt x 225.10777pt.
- [10 <./img/PCF1.png>] [11] (./Rapport.aux) ) 
+ [11 <./img/PCF1.png>] [12] [13] [14] (./Rapport.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3214 strings out of 493315
- 41762 string characters out of 6137903
- 106286 words of memory out of 5000000
- 6578 multiletter control sequences out of 15000+600000
+ 3233 strings out of 493315
+ 42078 string characters out of 6137903
+ 106294 words of memory out of 5000000
+ 6594 multiletter control sequences out of 15000+600000
  10646 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,5n,26p,906b,227s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2013/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Rapport.pdf (11 pages, 15374041 bytes).
+ 37i,5n,26p,1020b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Rapport.pdf (14 pages, 15383962 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 84 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

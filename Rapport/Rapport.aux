@@ -1,5 +1,6 @@
 \relax 
 \catcode `"\active 
+\citation{SMAP}
 \select@language{danish}
 \@writefile{toc}{\select@language{danish}}
 \@writefile{lof}{\select@language{danish}}
@@ -9,37 +10,44 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Indledning}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Intruduktion}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}H\IeC {\r a}rde skygger}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Shadowmap}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Teori}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Intuitiv forklaring af skygger}}{2}}
-\newlabel{shadowdesc}{{1}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Shadow mapping teknikken}}{3}}
-\newlabel{shadowmapdesc}{{2}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Praktisk}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Problem med back-clipping planet ved optegning af shadow mappet.}}{4}}
-\newlabel{P2}{{3}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Problem med back-clipping planet ved optegning af shadow mappet.}}{5}}
-\newlabel{P1}{{4}{5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Shadow acne}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Shadow acne}}{5}}
-\newlabel{S0}{{5}{5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Biasing}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Shadow acne opst\IeC {\r a}r fordi punkt samplet ikke er helt ens set fra lyset og \IeC {\o }jet.}}{6}}
-\newlabel{S1}{{6}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pile er shadow map samples p\IeC {\r a} diskrete steder. Stiplede linier er shadow map texel afgr\IeC {\ae }nsninger.For hver texel er den r\IeC {\o }de linie den dybde shadow mappet gemmer. Figur (b) ses betydningen af biasen, dybde v\IeC {\ae }rdierne fra \IeC {\o }jet vil nu altid v\IeC {\ae }re st\IeC {\o }rre for samme polygon og der opst\IeC {\r a}r derfor ikke geometrisk eller numerisk fejl.}}{7}}
-\newlabel{S2}{{7}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Shadow acne opst\IeC {\r a}r fordi punkt samplet ikke er helt ens set fra lyset og \IeC {\o }jet.}}{8}}
-\newlabel{S3}{{8}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces hvor \textit  {r} er den mindets v\IeC {\ae }rdi garanteret at give en beregnelig forskel i dybde v\IeC {\ae }rdien. \textit  {m} er den st\IeC {\o }rste dybde h\IeC {\ae }ldning og \textit  {factor} og \textit  {unit} tilpasse implantationen.}}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Shadow acne opst\IeC {\r a}r fordi punkt samplet ikke er helt ens set fra lyset og \IeC {\o }jet.}}{9}}
-\newlabel{S4}{{10}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Forbedringer/aliasing}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Percentage Closer Filtering (PCF)}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Shadow acne opst\IeC {\r a}r fordi punkt samplet ikke er helt ens set fra lyset og \IeC {\o }jet.}}{10}}
-\newlabel{P4}{{11}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Stencil Shadow Volumes}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Teori}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Depth-Pass Vs. Depth-Fail}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Afpr\IeC {\o }vning}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}K\IeC {\o }retider}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Konklution}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Forskellige shadow mapping metoder}{1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Standart shadow maps}{1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Perspective Shadow maps}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Shadowmap}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Teori}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Intuitiv forklaring af skygger. Punktet A ligger i skygge fordi den rette linie fra lyskilden til A g\IeC {\r a}r igennem C}}{3}}
+\newlabel{shadowdesc}{{1}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Shadow mapping teknikken}}{4}}
+\newlabel{shadowmapdesc}{{2}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Praktisk}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Problem med back-clipping planet ved optegning af shadow mappet.}}{5}}
+\newlabel{P1}{{3}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Undersampling. Et meget stort antal pixel fra kamerate skal mappes til kun 3 pixel i shadow mappet.}}{6}}
+\newlabel{P2}{{4}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Shadow acne}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Shadow acne}}{7}}
+\newlabel{S0}{{5}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Shadow acne opst\IeC {\r a}r fordi punkt samplet ikke er helt ens set fra lyset og \IeC {\o }jet.}}{7}}
+\newlabel{S1}{{6}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Biasing}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pile er shadow map samples p\IeC {\r a} diskrete steder. Stiplede linier er shadow map texel afgr\IeC {\ae }nsninger.For hver texel er den r\IeC {\o }de linie den dybde shadow mappet gemmer. Figur (b) ses betydningen af biasen, dybde v\IeC {\ae }rdierne fra \IeC {\o }jet vil nu altid v\IeC {\ae }re st\IeC {\o }rre for samme polygon og der opst\IeC {\r a}r derfor ikke geometrisk eller numerisk fejl.}}{8}}
+\newlabel{S2}{{7}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Shadow acne opst\IeC {\r a}r fordi punkt samplet ikke er helt ens set fra lyset og \IeC {\o }jet.}}{9}}
+\newlabel{S3}{{8}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Formlen for \textit  {slop-scale bais}. \textit  {r} er den mindets v\IeC {\ae }rdi garanteret at give en beregnelig forskel i dybde v\IeC {\ae }rdien. \textit  {m} er den st\IeC {\o }rste dybde h\IeC {\ae }ldning og \textit  {factor} og \textit  {unit} tilpasse implantationen.}}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Effekt af for stor bias v\IeC {\ae }rdi. Dette skaber peter panning, skygger ser ud som om de er l\IeC {\o }srevet fra figuren. Dette kan give illusion om at figure sv\IeC {\ae }ver selv om dette ikke er tilf\IeC {\ae }ldet.}}{10}}
+\newlabel{S4}{{10}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Forbedringer/aliasing}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Percentage Closer Filtering (PCF)}{10}}
+\citation{PCF}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces (a) ordin\IeC {\ae }re texture maps i opengl. (b) PCF metoden brugt p\IeC {\r a} dybde kortet.}}{11}}
+\newlabel{P4}{{11}{11}}
+\citation{PCF}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Stencil Shadow Volumes}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Teori}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Depth-Pass Vs. Depth-Fail}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Afpr\IeC {\o }vning}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}K\IeC {\o }retider}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Konklution}{13}}
+\bibcite{PCF}{RSC84}
+\bibcite{SMAP}{LW78}
