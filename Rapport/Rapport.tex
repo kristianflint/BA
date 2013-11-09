@@ -18,32 +18,46 @@
 Før jeg gik igang med dette projekt lagde jeg sjælden mærke til skyggeren i et rum. Selv om vi ikke ligger ret meget mærke til skygger ville verden se helt anderledes ud uden. Derfor er det også umuligt at lave en grafisk realistisk gengivelse af virkeligheden på en computer uden at på en eller anden måde at ligge skygger på.
 
 \section{Hårde skygger}
-Beskriver forskellige måder at ligge hårde skygger på en scene. De 2 metoder der i dag bruges til at ligge.
 
-shadow maps
-stencil shadow volumes
+I forbindelse med hårde skygge vil rapporten undersøge to forskellige måder at ligge hårde skygger på scenen, disse to forskellige måder arbejder enten i billede opløsning eller selve geometrien i scenen. Metoderne vil blive undersøgt, beskrevet, implementeret og tilsidste sammenlignet.
+
+\begin{itemize}
+  \item Shadow maps, arbejder i billedeopløsninger på scenen.
+  \item Stencil shadow volumes, arbejder i selve geometrien på scenen.
+\end{itemize}
 
 \subsection{Forskellige shadow mapping metoder}
 
-Der findes rigtig mange måde at forbedre shadow mapping tenikken nogle af forskellige metoder er:
+Dette afsnit vil undersøge nogle af de forskellige metoder at ligge skygge på en scene, der arbejder i billede opløsning. Tre af metoderne vil blive studeret og beskrevet. Fordele og ulemper opstilles og diskuteres, der vil herefter blive valgt en metode at gå i dybden med samt lave en implementering af denne. Metoderne som vil blive sammelignet er:
 
-\begin{itemize}
-  \item Interpolated shadowing
+\begin{enumerate}
   \item Shadow mapping med Percentage Closer Filtering (PCF)
-  \item Perspetive Shadow Mapping
+  \item Perspetive Shadow Mapping (PSM)
   \item Cascaded shadow maps (CSMs)
-\end{itemize}
+\end{enumerate}
 
+Nr 1. er den "original" shadow mapping algoritme udgivet i 1987 \cite{SMAP}, rapporten vil dog kigge på algoritmen med Percentage Closer Filtering for løsning af aliasing problmer. Metode to og tre er modifikationen af nr. 1 disse modifikationen er lavet for at løse nogle af aliasing problemerne med shadow mapping algoritmen (Nr.1). De efterfølgende underafsnit vil kort forklare metoderne og herefter diskutere disse med henblik på at arbejde videre med den mest brug bare løsning.
 
 \subsubsection{Shadow maps med PCF}
 
+Shadow mapping \cite{SMAP} er en teknik der arbejder i billedopløsninger, ideen er at flytte kameratet op til lystkilden og tage et billede hvor kun dybderne gemmens(shadow mappet). Kameraet flyttes nu tilbage til øjet og for hver fragtment sammenlignes fragtmentes dybde med den sammen fragtment men projekteret over i shadow mappet, hvis dybden i shadow mappet er mindre er punktet i skygge fordi der er et punkt set fra kameraet der er nærmere. Da der kun arbejdes i billedopløsninger kan der opstå en del geometiske fejl samt over og undersamplings fejl der kan give fejlagtige skygger. Disse problemer kan tildels løses ved at bruge en bias og et filter kendt som Percentage Closer Filtering. Dette giver en tilfredsstillende algoritme.
 
-\subsubsection{Cascaded shadow maps}
+Fordele
+\begin{itemize}
+  \item Hurtigt og egner sig godt til real-time grafik.
+  \item Shadow mappet skal kun opdateres hvis lyset eller objekter flyttes ikke kameraet.
+\end{itemize}
+
+Ulemper:
+\begin{itemize}
+  \item Store aliasing problemer der dog tildels kan løses med PCF.
+  \item Kræver scenen skal tegnes mindst to gange.
+\end{itemize}
 
 
 \subsubsection{Perspective Shadow maps}
 
-Perspective Shadow Maps videre bygger på videre på den orginale shadow mapping ide \cite{SMAP}. Teknikken prøver at løse de alaising problemer der opstår i Shadow mapping, ved at justere den uniforme sampling fordeling i shadow mappet. Forbedring opnås ved at genere shadow mappet i \textit{Post-perspective Space} for kameraet, inden det perspective Shadow map bliver generet bliver scenen og lyset transformeret med kamerates matrix. Dette betyder at objekter tæt på kameraet vil have en højere sampling, til forskel fra shadow mapping hvor samplingen factoren i forhold til objekter kun afhænger af deres placering i forhold til lyset og ikke kameraet.
+Perspective Shadow Maps \cite{PSMAP} blev publiciteret i 2002 af Stamminger og Drettakis, denne metode bygger på videre på den originale shadow mapping ide \cite{SMAP}. Teknikken prøver at løse de alaising problemer der opstår i Shadow mapping, ved at justere den uniforme sampling fordeling i shadow mappet. Forbedring opnås ved at genere shadow mappet i \textit{Post-perspective Space} for kameraet, inden det perspective shadow map bliver generet bliver scenen og lyset transformeret med kamerates matrix. Dette betyder at objekter tæt på kameraet vil have en højere sampling, til forskel fra shadow mapping hvor samplingen factoren i forhold til objekter kun afhænger af deres placering i forhold til lyset og ikke kameraet.
 
 
 Fordele
@@ -54,13 +68,36 @@ Fordele
 
 Ulemper:
 \begin{itemize}
-  \item Shadow mappet skal generes  hvergang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
+  \item Shadow mappet skal generes  hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
   \item Objekter bagved kameraet der burde kaste skygge, kaster ikke skygge. Dette kan dog løses men giver andre problemer.
   \item Større problemer med Shadow acne.
-  \item	Sensitive til the dueling frustum problemet
+  \item	Sensitive til the dueling frustum problemet (SKAL FORKLARES ET STED (VIST VED OVER/UNDER SAMPLING MEN NAVNET ER IKKE BRUGT) )
 \end{itemize}
 
+\subsubsection{Cascaded shadow maps}
 
+Cascaded shadow maps har lidt af den samme ide som Perspective Shadow maps, nemlig at ligge præcisionen tæt på øjet og ikke lyset. Dog udvider Cascaded shadow maps denne tenik ved også at dele view fustrumet op så der optegnes flere shadow maps hvor præcisionen formindskes jo længere væk fra kameraet.  Dette bevirker at sampling kommer til at være mere ens med den der er behov for navnligt at der ligger meget præcision tæt på øjet hvor dette er nødvendigt og derved løser alaising problemerne.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=140mm]{img/CSSHMAP1.JPG}
+\caption{Shadow mapping teknikken}
+\label{shadowmapdesc}
+\end{figure}
+
+Fordele
+\begin{itemize}
+  \item funger godt for store scenen hvor lyskilden er solen.
+  \item Shadow mappet skal generes  hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
+\end{itemize}
+
+Ulemper:
+\begin{itemize}
+  \item Shadow mappet skal generes  hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
+  \item
+\end{itemize}
+
+\subsubsection{Diskussion af shadow mapping algoritmer}
 
 
 \newpage 
@@ -127,9 +164,9 @@ Det første problem med shadow mapping der skal tages hånd om er clipping plane
 \label{P1}
 \end{figure}
 
-Problem 2 og 3 ses ved at objekter i scenen fejlagtigt kaster skygge på sig selv, fænomentet er også kendt som shadow acne og er beskrevet i afnitte af samme navn i rapporten. Shadow acne kan løses ved at indføre en tolerance (bias) ved sammenligning af z-værdierne. Hvilket beskrives i Biasing afsnittet.
+Problem 2 og 3 ses ved at objekter i scenen fejlagtigt kaster skygge på sig selv, fænomenet er også kendt som shadow acne og er beskrevet i afsnittet af samme navn i rapporten. Shadow acne kan løses ved at indføre en tolerance (bias) ved sammenligning af z-værdierne. Hvilket beskrives i Biasing afsnittet.
 
-Oversampling opstår når et fragtment i kamera space mappes til mange punkter i shadow mappet, dette kan være et problem i realtids programmer da dette skaber unødvendigt meget arbejde, samtidig kan skygger også forekomme rystelser i skyggerne. Undersampling opstår når shadow mappet ikke indeholder tilstrækkelig information, dette er en fordel i realtids programmer, dog kan skygger forekomme meget kantede og nogle steder forkerte.  Dette opstår fordi der bliver brugt en perspektiv projektion, hvilket betyder at der er meget information tæt på front clipping planet og meget mindre ude ved back-clipping planet. Hvis kameraet er placeret i den anden enden af scenen vil dette give undersampling da mange pixel tæt på kameraet skal projekteres til meget få pixel i sahdow mappet. Problemet er illusteret i 2D på figur \ref{P2}.  Både over og under-samplings problemet vil blive forsøgt forbedret i Percentage Closer Filtering (PCF) afsnittet.
+Oversampling opstår når et fragtment i kamera space mappes til mange punkter i shadow mappet, dette kan være et problem i realtids programmer da dette skaber unødvendigt meget arbejde, samtidig kan skygger også forekomme rystelser i skyggerne. Undersampling opstår når shadow mappet ikke indeholder tilstrækkelig information, dette er en fordel i realtids programmer, dog kan skygger forekomme meget kantede og nogle steder forkerte.  Dette opstår fordi der bliver brugt en perspektiv projektion, hvilket betyder at der er meget information tæt på front clipping planet og meget mindre ude ved back-clipping planet. Hvis kameraet er placeret i den anden enden af scenen vil dette give undersampling da mange pixel tæt på kameraet skal projekteres til meget få pixel i sahdow mappet. Problemet er illustreret i 2D på figur \ref{P2}.  Både over og under-samplings problemet vil blive forsøgt forbedret i Percentage Closer Filtering (PCF) afsnittet.
 
 
 \begin{figure}[ht!]
@@ -154,7 +191,7 @@ Det mest synlige problem med shadow mapping algritmen er \textit{self-shadowing 
 En af de ting der skyldes shadow acne at der ikke er præcision nok i dybde kortet, denne præcision kan forbedres ved at rykke  "front"  og "back" clipping planerne så de tætter indkapsler alle objekterne i scenen. Dette vil dog ikke kun fjerne shadow acne helt men forbedre resultat samt forbedre resultat når andre metoder tages i brug. 
 
 
-Den anden grund til at \textit{shadow acne} opstår er geometriske fejl. Disse geomeriske fejl forekommer fordi dybde værdien for et punkt sample bliver brugt til at beskrive dybden for et areal. Når et punkt fra kameraet projekteres ind i shadow mappet vil disse to punkt sample sjældent være helt det sammen og derfor vil dybde værdierne heller ikke være helt den sammen, dette problem er illustreret på figur \ref{S1}(a).
+Den anden grund til at \textit{shadow acne} opstår er geometriske fejl. Disse geometriske fejl forekommer fordi dybde værdien for et punkt sample bliver brugt til at beskrive dybden for et areal. Når et punkt fra kameraet projekteres ind i shadow mappet vil disse to punkt sample sjældent være helt det sammen og derfor vil dybde værdierne heller ikke være helt den sammen, dette problem er illustreret på figur \ref{S1}(a).
 
 \begin{figure}[ht!]
 \centering
@@ -168,7 +205,7 @@ Det ses på \ref{S1}(a) at hvis punkt samplet ikke er helt ens set fra lyset og 
 
 \subsubsection{Biasing}
 
-Biasing er en måde at håntere shadow acne problemet på, biasing løser shadow acne problemet det at sørge for at dybde fra øjet(kameratet) = < dybde i shadowmappet for alle fragtmenter fra det samme polygonium.  Bias er et lille offset der adderes til z-værdien inden dybde testen i opengl foretages og derved bliver alle fragtmenter flyttet lidt tilbage og vil derfor ikke kunne skygge for sig selv se figur \ref{S2}(b). Dette vil i mange tilfælde løse shadow arne.
+Biasing er en måde at håndtere shadow acne problemet på, biasing løser shadow acne problemet det at sørge for at dybde fra øjet(kameratet) = < dybde i shadowmappet for alle fragtmenter fra det samme polygonium.  Bias er et lille offset der adderes til z-værdien inden dybde testen i opengl foretages og derved bliver alle fragtmenter flyttet lidt tilbage og vil derfor ikke kunne skygge for sig selv se figur \ref{S2}(b). Dette vil i mange tilfælde løse shadow arne.
 
 \begin{figure}[ht!]
 \centering
@@ -218,11 +255,9 @@ Jeg vil her kort forklare de forskellige metode og vælge en at arbejde videre m
 
 \subsubsection{Percentage Closer Filtering (PCF)}
 
-Percentage Closer Filtering(herefter referet til som PCF ) er en anti-aliasing tenik der løser det problem der opstår ved oversampling. PCF teknikken blev udvilket i 1987 af Reeves, Salesin og Cook (referance). PCF kan også til dels også hjælpe på undersamplings problemet, da den udglatter skyggen og derved vil steder med undersampling ikke fremstå så kantede som uden PCF.
+Percentage Closer Filtering(herefter referet til som PCF ) er en anti-aliasing tenik der delvist løser de problem der opstår ved oversampling. PCF teknikken blev udvilket i 1987 af Reeves, Salesin og Cook (referance). PCF kan også til dels også hjælpe på undersamplings problemet, da den udglatter skyggen og derved vil steder med undersampling ikke fremstå så kantede som uden PCF. Teknikken kan også tildels bruges til at simulere penumbra (bløde skygger) men da PCF ikke tager højde for afstande mellem lyskilden og objekt er dette ikke en penumbra algoritme. Algoritme vil dog alligevel i mange tilfælde virke overbevisende som penumbra.
 
-PCF kan også tildels bruges til at simulere penumbra (bløde skygger) men da PCF ikke tager højde for afstande mellem lyskilden og objekt er dette ikke en penumbra algoritme. Algoritme vil dog alligevel i mange tilfælde virke overbevisende som penumbra.
-
-PCF teknikken fungere næsten efter samme princip som ordinære texture maps i opengl, nemlig ved at sample nærliggende værdier i mappet til en middel værdi af disse. Ordinære texture maps i opengl fungere ved at først sample værdierne til en ny samplet værdi og derefter sammenligne denne. Denne tilgang vil ikke virke da der sammen lignes med dybde værdier og derfor vil give en middel dybde. I stedet byttes om på rækkefølgen så  der først sammenlignes nærliggenede punkter om disse er i skygge eller ej og derefter tages et gennemsnit af værdierne og bruges som skygge værdien. figur \ref{P4} viser forskellen på de to metoder.
+PCF teknikken fungere næsten efter samme princip som ordinære texture maps i opengl, nemlig ved at sample nærliggende værdier i mappet til en middel værdi af disse. Ordinære texture maps i opengl fungere ved at først sample værdierne til en ny samplet værdi og derefter sammenligne denne. Denne tilgang vil ikke virke da der sammen lignes med dybde værdier og derfor vil give en middel dybde. I stedet byttes om på rækkefølgen så  der først sammenlignes nærliggende punkter om disse er i skygge eller ej og derefter tages et gennemsnit af værdierne og bruges som skygge værdien. figur \ref{P4} viser forskellen på de to metoder.
 
 \begin{figure}[ht!]
 \centering
@@ -289,7 +324,12 @@ Køretiderner for de 2 metoder afprøves.
  CASTING CURVED SHADOWS ON CURVED SURFACES 
   Lance Williams
   \emph{Computer Graphics Lab New York Institute of Technology }, 1978.
-  
+
+  \bibitem[LW78]{PSMAP} 
+ Perspective Shadow Maps 
+  Marc Stamminger og George Drettakis.
+  \emph{REVES - INRIA Sophia-Antipolis, France}, 2002.
+    
   
   
 \end{thebibliography} 
