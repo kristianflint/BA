@@ -71,7 +71,7 @@ Ulemper:
   \item Shadow mappet skal generes  hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
   \item Objekter bagved kameraet der burde kaste skygge, kaster ikke skygge. Dette kan dog løses men giver andre problemer.
   \item Større problemer med Shadow acne.
-  \item	Sensitive til the dueling frustum problemet (SKAL FORKLARES ET STED (VIST VED OVER/UNDER SAMPLING MEN NAVNET ER IKKE BRUGT) )
+  \item	Sensitive til the dueling frustum problemet, at kamera og lys kigger direkte på hinanden (se aliasing afsnittet)
 \end{itemize}
 
 \subsubsection{Cascaded shadow maps}
@@ -87,17 +87,24 @@ Cascaded shadow maps har lidt af den samme ide som Perspective Shadow maps, neml
 
 Fordele
 \begin{itemize}
-  \item funger godt for store scenen hvor lyskilden er solen.
-  \item Shadow mappet skal generes  hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
+  \item Funger godt for store scenen hvor lyskilden er solen.
+  \item Shadow mappet skal generes hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
 \end{itemize}
 
 Ulemper:
 \begin{itemize}
-  \item Shadow mappet skal generes  hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
-  \item
+  \item Shadow mappet skal generes hver gang kameraet flyttes. Dette bevirker at algoritmen kræver en del mere arbejde en shadow mapping
+  \item Skal opstilles og udregnes flere shadows maps hver gang.
 \end{itemize}
 
 \subsubsection{Diskussion af shadow mapping algoritmer}
+
+Dette afsnittet vil diskuttere de tre algoritmer på generalle fordele og ulemper,  samt i forhold til hvad denne opgave ønsker at opnå dem skyggerne.
+
+Da denne opgave kun vil arbejde men forholdsvis små og tildels afgrænsede scener vil Cascaded shadow maps blive sorteret fra. Cascaded shadow maps fungere rigtig godt for store scene, selv om det også ville kunne bruges med gode resultater på små scener ville dette være ekstra arbejde uden noget mærkbart bedre resultat. 
+
+Perspective Shadow maps er på mange måde en god løsning fordi den ligger præcitationen hvor der er behov for den nemlig tæt på øjet. Det store problem med at objekter der ligger bag kameraet ikke kaster skygge skal der tages hånd om før algoritmen giver et tilfredsstillende resultat. Dette er ikke så lige til og er grunden til at denne algoritme ikke vælges. Dette efterlader Shadow maps med PCF som er den algoritmen rapporten vil arbejde videre med og implementere. Algoritmen vælges fordi den er hurtigt og egner sig godt til real-time grafik samt at de fleste aliasing problemer forholdsvis nemt og billigt kan løses.
+
 
 
 \newpage 
@@ -273,15 +280,17 @@ På figur \ref{P4}(b) ses hvordan PCF filteret først sammenligner dybde værdie
 Det næste er at bestemme det område i shadow mappet der skal filteres over. Artiklen \cite{PCF} forslå to forskellig metoder at bestemme dette sampling område på.
 
 \begin{enumerate}
-\item Der anvendes en fast størrelse på omegnen der medtages af nærliggende punkter i shadow mappet
-\item Nærliggende punkter på polygoniet projekteres over i shadow mappet og disse punkter bruges til at filtrese over
+\item Der anvendes en fast størrelse på omegnen der medtages af nærliggende punkter i shadow mappet.
+\item Nærliggende punkter på polygoniet projekteres over i shadow mappet og disse punkter bruges til at filtres over.
 \end{enumerate}
 
 Den første metode er hurtig og nem at implementere fordi der ikke skal lave nogle ekstra projektioner ind, men kun laves et antal ekstra opslag i shadow mappet følgende det størrelsen af det område der ønske. Problemet er dog at de pixel der ligger i område der filteres over ikke har nogle relation til den pixel der skal skygge farves.
 
-Metode to kræver en del mere arbejde fordi udover punkterne skal vælges skal disse også projekteres over i shadow mappet før der kan sammenligenes og filtres over disse. Metoden burde tilgengæld i teorien give et bedre resultat da alle punkterne der filteres over ret faktisk ligger på polygonet. Denne metode har artiklen  \cite{PCF} dog ikke testet.
+Metode to kræver en del mere arbejde fordi udover punkterne skal vælges skal disse også projekteres over i shadow mappet før der kan sammenligenes og filtres over disse. Metoden burde tilgengæld i teorien give et bedre resultat da alle punkterne der filteres over ret faktisk ligger på polygonet. 
 
-FORKLAR HVILKEN METODE JEG VIL BRUGE.
+Denne opgave arbejder videre med metode et fordi denne løser alaising problemerne ude at skabe for meget overhead, samt  metode to har artiklen \cite{PCF} ikke testet. Derfor er det ikke sikkert hvor meget bedre resultat dette ville give, dette er dog også langt udover omfanget af denne opgave at test denne teori.
+
+
 
 
 
